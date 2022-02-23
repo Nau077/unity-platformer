@@ -10,6 +10,7 @@ public class Player: MonoBehaviour
     [SerializeField]
     private PlayerComponents components;
 
+    [SerializeField]
     private PlayerReferences references;
 
     private PlayerUtilities utilities;
@@ -23,6 +24,8 @@ public class Player: MonoBehaviour
             return components;
         }
     }
+
+    public PlayerReferences References { get => references; }
     public PlayerStats Stats { get => stats; }
     public PlayerActions Actions { get => actions; }
     public PlayerUtilities Utilities { get => utilities; set => utilities = value; }
@@ -46,15 +49,17 @@ public class Player: MonoBehaviour
 
         AnyStateAnimation[] animations = new AnyStateAnimation[]
         {
-            new AnyStateAnimation(RIG.BODY, "Body_Idle"),
-            new AnyStateAnimation(RIG.BODY, "Body_Walk"),
+            new AnyStateAnimation(RIG.BODY, "Body_Idle", "Body_Attack"),
+            new AnyStateAnimation(RIG.BODY, "Body_Walk", "Body_Attack", "Body_Jump"),
             new AnyStateAnimation(RIG.BODY, "Body_Jump"),
             new AnyStateAnimation(RIG.BODY, "Body_Fall"),
+            new AnyStateAnimation(RIG.BODY, "Body_Attack"),
 
-            new AnyStateAnimation(RIG.LEGS, "Legs_Idle"),
-            new AnyStateAnimation(RIG.LEGS, "Legs_Walk"),
+            new AnyStateAnimation(RIG.LEGS, "Legs_Idle", "Legs_Attack"),
+            new AnyStateAnimation(RIG.LEGS, "Legs_Walk", "Legs_Jump"),
             new AnyStateAnimation(RIG.LEGS, "Legs_Jump"),
             new AnyStateAnimation(RIG.LEGS, "Legs_Fall"),
+            new AnyStateAnimation(RIG.LEGS, "Legs_Attack"),
         };
                     
         components.Animator.AddAnimations(animations);

@@ -1,18 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerReferences : MonoBehaviour
+[Serializable]
+public class PlayerReferences  
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private GameObject[] weaponObjects;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject[] WeaponObjects { get => weaponObjects; set => weaponObjects = value; }
 }

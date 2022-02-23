@@ -9,6 +9,8 @@ public class PlayerStats
     public float Speed { get; set; }
     public Vector2 Direction { get; set; }
 
+    private WEAPON weapon;
+
     [SerializeField]
     private float jumpForce;
 
@@ -20,4 +22,11 @@ public class PlayerStats
 
     public float WalkSpeed { get => walkSpeed; }
     public float JumpForce { get => jumpForce; }
+
+    public WEAPON Weapon
+    {
+        get => weapon;
+
+        set => weapon = value;
+    }
 }

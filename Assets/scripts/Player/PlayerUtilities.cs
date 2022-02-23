@@ -11,7 +11,12 @@ public class PlayerUtilities
     public PlayerUtilities(Player player)
     {
         this.player = player;
+
         commands.Add(new JumpCommand(player, KeyCode.Space));
+        commands.Add(new AttackCommand(player, KeyCode.LeftControl));
+        commands.Add(new WeaponSwapCommand(player, WEAPON.FISTS, KeyCode.Alpha1));
+        commands.Add(new WeaponSwapCommand(player, WEAPON.GUN, KeyCode.Alpha2));
+        commands.Add(new WeaponSwapCommand(player, WEAPON.SWORD, KeyCode.Alpha3));
     }
     public void HandleInput()
     {
